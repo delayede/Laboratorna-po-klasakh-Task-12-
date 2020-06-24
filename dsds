@@ -136,4 +136,303 @@ class Paper
     }
     
     
+    GG
+    
+    
+    
+    public class Person
+    {
+
+        private string name;
+
+        private string secondName;
+
+        private DateTime date;
+
+        public Person(string name, string secondName, DateTime date)
+
+        {
+
+            this.name = name;
+
+            this.secondName = secondName;
+
+            this.date = date;
+
+        }
+
+        public Person()
+
+        {
+
+            name = "Славик";
+
+            secondName = "Клюков";
+
+            date = new DateTime(1900, 1, 1);
+
+        }
+
+        public string Name
+
+        {
+
+            get { return name; }
+
+            set { name = value; }
+
+        }
+
+        public string SecondName
+
+        {
+
+            get { return secondName; }
+
+            set { secondName = value; }
+
+        }
+
+        public DateTime Date
+
+        {
+
+            get { return date; }
+
+            set { date = value; }
+
+        }
+
+        public int Year
+
+        {
+
+            get { return date.Year; }
+
+            set { date = new DateTime(value, date.Month, date.Day); }
+
+        }
+
+        public override string ToString()
+
+        {
+
+            return "Имя: " + name + "\n" + "Фамилия: " + secondName + "\n" + "Дата рождения: " + date.ToShortDateString();
+
+        }
+
+        public virtual string ToShortString()
+
+        {
+
+            return "Имя: " + name + "\n" + "Фамилия: " + secondName;
+
+        }
+
+      enum TimeFrame
+
+        {
+            Year, TwoYears, Long
+        }
+
+
+
+
+        class Paper
+
+        {
+
+            string name;
+            Person author;
+            DateTime datePaper;
+
+            public Paper(string name, Person author, DateTime datePaper)
+
+            {
+
+                this.name = name;
+
+                this.author = author;
+
+                this.datePaper = datePaper;
+
+            }
+
+            public Paper()
+
+            {
+
+                name = "Дятел";
+
+                author = new Person();
+
+                datePaper = new DateTime(2000, 1, 1);
+
+            }
+            public string Name
+
+            {
+
+                get { return name; }
+
+                set { name = value; }
+
+            }
+            public Person Author
+
+            {
+
+                get { return author; }
+
+                set { author = value; }
+
+            }
+
+            public DateTime Date
+
+            {
+
+                get { return datePaper; }
+
+                set { datePaper = value; }
+
+            }
+            public override string ToString()
+
+            {
+
+                return "назва публікації;: " + name + "\n автор публікації;: " + author.ToString() + "\n Дата публікації.: " + datePaper.ToShortDateString();
+
+            }
+
+
+            public class ResearchTeam
+
+            {
+                private string research;
+
+                private string organization;
+
+                private int RegisterNumber;
+
+                private TimeFrame researchTime;
+
+                private Paper[] publishList;
+
+                public ResearchTeam(string research, string organization, int RegisterNumber, TimeFrame researchTime)
+
+                {
+                    this.research = research;
+
+                    this.organization = organization;
+
+                    this.RegisterNumber = RegisterNumber;
+
+                    this.researchTime = researchTime;
+
+                    publishList = new Paper[0];
+
+
+
+                }
+
+                public ResearchTeam()
+                {
+                    research = "WOW";
+
+                    organization = "umbrella";
+
+                    RegisterNumber = 20;
+
+                    researchTime = TimeFrame.Year;
+
+                    publishList = new Paper[0];
+
+
+                }
+            }
+               public string research
+                {
+
+                    get
+                {
+                    return research;
+                }
+
+                set
+                {
+                    research = value;
+                }
+
+           }
+
+            public string organization
+            {
+
+                get
+                {
+                    return organization;
+                }
+
+                set
+                {
+                    organization = value;
+                }
+
+            }
+            public int RegisterNumber
+            {
+
+                get
+                {
+                    return RegisterNumber;
+                }
+
+                set
+                {
+                    RegisterNumber = value;
+                }
+
+            }
+
+            public TimeFrame researchTime
+            {
+
+                get
+                {
+                    return researchTime;
+                }
+
+                set
+                {
+                    researchTime = value;
+                }
+
+            }
+
+            public Paper[] publishList
+            {
+
+                get
+                {
+                    return publishList;
+                }
+
+                set
+                {
+                    publishList = value;
+                }
+
+            }
+            public Paper Paper
+            {
+                get
+                {
+                    return Count == 0 ? null : this.OrderByDescending(p => p.PublishDate).FirstOrDefault();
+                }
+            }
+           
+        }
+    }
+    } 
     
